@@ -9,7 +9,7 @@ addresses.
 ## How to use it?
 
 * Install ZeroMQ.
-* Install my [ZeroDNS](https://github.com/shamazmazum/zerodns) server and run it
+* Install my [ZeroDNS](https://github.com/shamazmazum/zero-dns) server and run it
   on every machine in your LAN.
 * Install this library.
 * Change `hosts` entry in `/etc/nsswitch.conf` to something like `hosts: files
