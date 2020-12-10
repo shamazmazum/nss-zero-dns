@@ -7,7 +7,9 @@ set (CMAKE_C_FLAGS_RELEASE "-O3")
 
 find_package (ZeroMQ REQUIRED)
 
-set (ALLOW_FILE "/etc/zerodns.allow" CACHE FILEPATH "Optional allow file")
-set (ZDNS_SOCKET "tcp://localhost:5355" CACHE STRING "Address of ZeroDNS query endpoint")
+set (ALLOW_FILE "/etc/zerodns.allow"
+  CACHE FILEPATH "Optional allow file")
+set (ZDNS_SOCKET "ipc:///var/run/zero-dns/zero-dns.sock"
+  CACHE STRING "Address of ZeroDNS query endpoint")
 
 add_subdirectory (src)
