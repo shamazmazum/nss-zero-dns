@@ -11,7 +11,8 @@ set_target_properties (nss-zero-dns PROPERTIES
   OUTPUT_NAME nss_zerodns
   PREFIX ""
   VERSION ${PROJECT_VERSION}
-  SOVERSION ${PROJECT_VERSION_MAJOR})
+  SOVERSION ${PROJECT_VERSION_MAJOR}
+  C_VISIBILITY_PRESET hidden)
 
 install (TARGETS nss-zero-dns LIBRARY
   DESTINATION lib)

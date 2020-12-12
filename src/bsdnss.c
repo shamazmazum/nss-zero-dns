@@ -65,9 +65,6 @@
 #define _NSS_UTRACE(msg)
 #endif
 
-ns_mtab* nss_module_register(const char* source, unsigned int* mtabsize,
-                             nss_module_unregister_fn* unreg);
-
 typedef enum nss_status (*_bsd_nsstub_fn_t)(const char*, struct hostent*, char*,
                                             size_t, int*, int*);
 
@@ -86,6 +83,7 @@ static ns_mtab methods[] = {
     {NSDB_HOSTS, "ghbyname", __nss_bsdcompat_ghbyname, NULL},
 };
 
+__attribute__((visibility ("default")))
 ns_mtab* nss_module_register(const char* source, unsigned int* mtabsize,
                              nss_module_unregister_fn* unreg) {
 
