@@ -1,7 +1,11 @@
 cmake_minimum_required (VERSION 2.6)
 cmake_policy(SET CMP0048 NEW)
-
 project (nss-zero-dns VERSION 1.0)
+
+if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  message (FATAL_ERROR "Linux is not supported by now. Feel free to contribute.")
+endif (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/Modules")
 set (CMAKE_C_FLAGS_RELEASE "-O3")
 
