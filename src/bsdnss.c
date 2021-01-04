@@ -160,7 +160,6 @@ static int __nss_bsdcompat_getaddrinfo(void* retval, void* mdata __unused,
         ai->ai_protocol = pai->ai_protocol;
         ai->ai_family = u.result[i].af;
         memset(psa, 0, sizeof(struct sockaddr_storage));
-        psa->sa_len = ai->ai_addrlen;
         psa->sa_family = ai->ai_family;
         ai->ai_addr = psa;
         switch (ai->ai_family) {
@@ -178,6 +177,7 @@ static int __nss_bsdcompat_getaddrinfo(void* retval, void* mdata __unused,
             ai->ai_addrlen = sizeof(struct sockaddr_storage);
             memcpy(psa->sa_data, &u.result[i].address, ai->ai_addrlen);
         }
+        psa->sa_len = ai->ai_addrlen;
 
         curp->ai_next = ai;
         curp = ai;

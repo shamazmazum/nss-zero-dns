@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 2.6)
 cmake_policy(SET CMP0048 NEW)
-project (nss-zero-dns VERSION 1.0)
+project (nss-zero-dns VERSION 1.1)
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
   message (FATAL_ERROR "Linux is not supported by now. Feel free to contribute.")
