@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 3.0)
 cmake_policy(SET CMP0048 NEW)
 project (nss-zero-dns VERSION 1.1)
 
@@ -13,7 +13,7 @@ find_package (ZeroMQ REQUIRED)
 
 set (ALLOW_FILE "/etc/zerodns.allow"
   CACHE FILEPATH "Optional allow file")
-set (ZDNS_SOCKET "ipc:///var/run/zero-dns/zero-dns.sock"
-  CACHE STRING "Address of ZeroDNS query endpoint")
+set (ZDNS_SOCKET_DIRECTORY "/var/run/zero-dns"
+  CACHE STRING "Directory where ZeroDNS daemon creates its query sockets")
 
 add_subdirectory (src)

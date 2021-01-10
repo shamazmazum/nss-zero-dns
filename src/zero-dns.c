@@ -31,6 +31,8 @@ struct zmq_ctx_sock {
     void *socket;
 };
 
+#define ENDPOINT_LEN 100
+
 static void release_context_and_socket (struct zmq_ctx_sock *data) {
     if (data->socket != NULL) {
         zmq_close (data->socket);
@@ -42,6 +44,8 @@ static void release_context_and_socket (struct zmq_ctx_sock *data) {
 }
 
 static int prepare_context_and_socket (struct zmq_ctx_sock *data) {
+    char endpoint[ENDPOINT_LEN];
+    char *iface;
     int success = 0;
 
     memset (data, 0, sizeof (struct zmq_ctx_sock));
@@ -60,7 +64,13 @@ static int prepare_context_and_socket (struct zmq_ctx_sock *data) {
         goto done;
     }
 
-    if (zmq_connect (data->socket, ZDNS_SOCKET) != 0) {
+    iface = getenv ("ZDNS_IFACE");
+    if (iface == NULL) {
+        goto done;
+    }
+
+    snprintf (endpoint, ENDPOINT_LEN, "ipc://%s/%s", ZDNS_SOCKET_DIRECTORY, iface);
+    if (zmq_connect (data->socket, endpoint) != 0) {
         goto done;
     }
 

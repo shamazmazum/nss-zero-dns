@@ -1,5 +1,5 @@
 include_directories (${ZEROMQ_INCLUDE_DIR})
-add_definitions (-DMDNS_ALLOW_FILE="${ALLOW_FILE}" -DZDNS_SOCKET="${ZDNS_SOCKET}")
+add_definitions (-DMDNS_ALLOW_FILE="${ALLOW_FILE}" -DZDNS_SOCKET_DIRECTORY="${ZDNS_SOCKET_DIRECTORY}")
 
 add_library (nss-zero-dns SHARED
   nss.c
