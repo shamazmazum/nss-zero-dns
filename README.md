@@ -14,8 +14,6 @@ addresses.
 * Install this library.
 * Change `hosts` entry in `/etc/nsswitch.conf` to something like `hosts: files
   dns zerodns`.
-* Set an environment variable ZDNS_IFACE to the name of interface connected to
-  your LAN.
 
 That's it. You must be able to resolve names in `.local` zone!
 

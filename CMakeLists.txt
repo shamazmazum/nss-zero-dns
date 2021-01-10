@@ -13,7 +13,7 @@ find_package (ZeroMQ REQUIRED)
 
 set (ALLOW_FILE "/etc/zerodns.allow"
   CACHE FILEPATH "Optional allow file")
-set (ZDNS_SOCKET_DIRECTORY "/var/run/zero-dns"
-  CACHE STRING "Directory where ZeroDNS daemon creates its query sockets")
+set (ZDNS_SOCKET "ipc:///var/run/zero-dns/zero-dns"
+  CACHE STRING "Address of ZeroDNS query endpoint")
 
 add_subdirectory (src)
